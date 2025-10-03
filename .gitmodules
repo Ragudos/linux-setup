@@ -1,0 +1,3 @@
+[submodule "nvim"]
+	path = env/.config/nvim
+	url = git@github.com:Ragudos/linux-config.nvim

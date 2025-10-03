@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+paru -S jdk-openjdk jdk21-openjdk openjdk-doc openjdk21-doc netbeans
+

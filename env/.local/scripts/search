@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+BROWSER="firefox"
+SEARCH_ENGINE="https://google.com/?q="
+
+# Run Rofi in drun mode and capture the user's input
+# Use -no-custom to ensure only valid .desktop entries are selected, or custom input is captured
+INPUT=$(rofi -show dryn -show-icons -no-custom -p "Run or Search: ")
+
+
+# Exit if no selection (e.g. <esc> key)
+if [ -z "$INPUT" ]; then
+	exit 0
+fi
+
+# Check if the input matches a .desktop entry by running rofi again in drun mode
+# We use echo  (fuzzy matching) to check if the input corresponds to a valid application
+if rofi -show drun -show-icons -filter "$INPUT" | grep -q "^$INPUT$"; then
+	# Check if the input matches a .desktop entry by running rofi again in drun mode
+# We use echo  (fuzzy matching) to check if the input corresponds to a valid application
+	gtk-launch "$INPUT" &
+else
+   	# No matching program found, so treat the input as a search query
+	$BROWSER "${SEARCH_ENGINE}${INPUT}" &
+fi
+

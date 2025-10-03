@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+paru -S mingw-w64-gcc mingw-w64-clang-x86_64-clang
+

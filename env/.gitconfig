@@ -1,0 +1,5 @@
+[core]
+	pager = cat
+	editor = vim
+[includeIf "gitdir:~/personal/"]
+	path = ~/personal/gitconfig

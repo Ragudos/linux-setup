@@ -3,6 +3,8 @@ VIM="nvim"
 
 PERSONAL=$XDG_CONFIG_HOME/personal
 DEV_ENV=$HOME/dev
+chmod +x $XDG_CONFIG_HOME/waybar/scripts/*.sh
+echo "CHMOD"
 
 for i in `find -L $PERSONAL`; do
 	source $i

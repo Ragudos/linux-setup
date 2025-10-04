@@ -1,5 +1,6 @@
-
-theme = rose-pine-moon
+font-family = Maple Mono NF CN
+font-feature = "liga"
+theme = Rose Pine Moon
 background = 000000
 background-opacity = 0.87
 background-blur = false

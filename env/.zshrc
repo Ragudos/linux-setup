@@ -22,7 +22,6 @@ if [[ -d "$HOME/oh-my-zsh.sh" ]]; then
 	source ~/.zsh_profile
 fi
 
-
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 export BUN_INSTALL="$HOME/.bun"
@@ -30,7 +29,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/theme.json")"

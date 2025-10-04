@@ -1,36 +1,47 @@
-export PATH="$HOME/.local/bin:$PATH"
-
-# Pyenv (optional, only if installed)
-if command -v pyenv >/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-# NVM (Node Version Manager)
 if [[ -d "$HOME/.nvm" ]]; then
   export NVM_DIR="$HOME/.nvm"
   [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-  [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
 fi
 
-if [[ -d "$HOME/oh-my-zsh.sh" ]]; then
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
 	export ZSH="$HOME/.oh-my-zsh"
 	ZSH_THEME=""
 	source $ZSH/oh-my-zsh.sh
 	source ~/.zsh_profile
 fi
 
-[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# Start the tmux session if not alraedy in the tmux session
+if [[ ! -n $TMUX  ]]; then
+	# Get the session IDs
+	session_ids="$(tmux list-sessions)"
 
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+	# Create new session if no sessions exist
+	if [[ -z "$session_ids" ]]; then
+		tmux new-session
+	fi
+	
+	# Select from following choices
+	#   - Attach existing session
+	#   - Create new session
+	#   - Start without tmux
+	create_new_session="Create new session"
+	start_without_tmux="Start without tmux"
+	choices="$session_ids\n${create_new_session}:\n${start_without_tmux}:"
+	choice="$(echo $choices | fzf | cut -d: -f1)"
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+	if expr "$choice" : "[0-9]*$" >&/dev/null; then
+		# Attach existing session
+		tmux attach-session -t "$choice"
+	elif [[ "$choice" = "${create_new_session}" ]]; then
+    		# Create new session
+    		tmux new-session
+	elif [[ "$choice" = "${start_without_tmux}" ]]; then
+    		# Start without tmux
+    		:
+	fi
+fi
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/theme.json")"
+	eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/oh-my-posh/theme.json")"
 fi
 

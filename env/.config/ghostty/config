@@ -2,8 +2,8 @@ font-family = Maple Mono NF CN
 font-feature = "liga"
 theme = Rose Pine Moon
 background = 000000
-background-opacity = 0.87
-background-blur = false
+background-opacity = 1
+background-blur = true
 confirm-close-surface = false
 
 shell-integration-features = no-cursor,no-sudo,no-title

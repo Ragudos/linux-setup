@@ -5,18 +5,18 @@ font-feature                   = liga
 font-feature                   = ss13
 
 theme = "Rose Pine Moon"
+
 background = 000000
 background-opacity = 1
 background-blur = true
+
 confirm-close-surface = false
 
 gtk-titlebar = false
 
 keybind = ctrl+enter=unbind
-
 shell-integration = zsh
 shell-integration-features = no-cursor,no-sudo,no-title
-
 
 adjust-cursor-thickness        = 3
 adjust-underline-position      = 3
@@ -24,6 +24,7 @@ bold-is-bright                 = true
 cursor-invert-fg-bg            = true
 cursor-opacity                 = 0.8
 link-url                       = true
+
 mouse-hide-while-typing        = true
 
 window-vsync                   = true

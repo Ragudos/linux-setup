@@ -1,5 +1,11 @@
 [core]
 	pager = cat
 	editor = vim
+[commit]
+    gpgsign = true
 [includeIf "gitdir:~/personal/"]
-	path = ~/personal/gitconfig
+	path = ~/personal/.gitconfig
+[includeIf "gitdir:~/school/"]
+    path = ~/school/.gitconfig
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig

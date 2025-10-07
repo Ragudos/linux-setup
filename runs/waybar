@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/Alexays/Waybar ~/personal/waybar
-cd ~/personal/waybar
-meson setup build
-ninja -C build
-./build/waybar
-ninja -C build install
+sudo pacman -S waybar
 

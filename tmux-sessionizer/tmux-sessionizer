@@ -38,7 +38,7 @@ user_selected=""
 split_type=""
 VERSION="0.1.0"
 
-while [[ "$#" -gt 0 ]]; then
+while [[ "$#" -gt 0 ]]; do
 	case "$1" in
 	-h | --help)
 		echo "Usage: tmux-sessionizer [OPTIONS] [SEARCH_PATH]"
@@ -86,7 +86,6 @@ while [[ "$#" -gt 0 ]]; then
 	    esac
 	    shift
 done
-
 
 log "tmux-sessionizer($VERSION): idx=$session_idx cmd=$session_cmd user_selected=$user_selected split_type=$split_type log=$TS_LOG log_file=$TS_LOG_FILE"
 

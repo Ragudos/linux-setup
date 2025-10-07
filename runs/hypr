@@ -2,5 +2,5 @@
 
 # all desktop components our config uses
 
-paru -S ghostty hyprpaper hyprlock hypr rofi tmux waybar nautilus
+paru -S ghostty hyprpaper hyprlock hypr rofi tmux waybar thunar
 

@@ -5,8 +5,7 @@ SEARCH_ENGINE="https://google.com/?q="
 
 # Run Rofi in drun mode and capture the user's input
 # Use -no-custom to ensure only valid .desktop entries are selected, or custom input is captured
-INPUT=$(rofi -show dryn -show-icons -no-custom -p "Run or Search: ")
-
+INPUT=$(rofi -show drun -show-icons -no-custom -p "Run or Search: ")
 
 # Exit if no selection (e.g. <esc> key)
 if [ -z "$INPUT" ]; then

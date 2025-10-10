@@ -1,5 +1,17 @@
+plugins=(
+    git
+    archlinux
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    copyfile
+    copybuffer
+    dirhistory
+)
+
 export XDG_CONFIG_HOME=$HOME/.config
 export DEV_ENV=$HOME/personal/dev
+export EDITOR=nvim
 
 PERSONAL=$XDG_CONFIG_HOME/personal
 
@@ -18,26 +30,19 @@ addToPathFront() {
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
 
-# ==================
-#  Prompt
-# ==================
-PROMPT='%F{white}%BArchlinux%f%F{magenta}_%f%F{blue}$USER%f %F{black}❯%f '
-
 [[ -f "$HOME/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]] && \
   source "$HOME/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 
 [[ -f "$HOME/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]] && \
   source "$HOME/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-  
   autoload -Uz compinit && compinit -C   # cache completions
-
-[[ -f "$HOME/.config/zsh/aliases.zsh" ]] && source "$HOME/.config/zsh/aliases.zsh"
-[[ -f "$HOME/.config/zsh/functions.zsh" ]] && source "$HOME/.config/zsh/functions.zsh"
 
 alias ls="ls --colo=auto"
 alias cdp="cd ~/personal"
 alias cds="cd ~/school"
 alias git-init="git init && git add . && git commit -m \"init\""
-
-# source ~/.php_profile
-
+alias shutdown="systemctl poweroff"
+alias v="$EDITOR"
+alias vim="$EDITOR"
+alias wifi="nmtui"
+alias c="clear"

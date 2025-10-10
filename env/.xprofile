@@ -1,4 +1,0 @@
-export PATH=$PATH:$HOME/.local/scripts
-export PATH=$PATH:$HOME/.local/bin
-
-XDG_CURRENT_DESKTOP=Hyprland

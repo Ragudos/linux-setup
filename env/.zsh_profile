@@ -30,6 +30,10 @@ addToPathFront() {
 addToPathFront $HOME/.local/scripts
 addToPathFront $HOME/.local/bin
 
+if [[ -d "$HOME/Android" ]]; then
+  addToPathFrom $HOME/Android/Sdk/platform-tools
+fi
+
 [[ -f "$HOME/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]] && \
   source "$HOME/.zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
 

@@ -19,10 +19,6 @@ corepack enable pnpm
 # Verify pnpm version:
 pnpm -v
 
-corepack enable yarn
-
-yarn -v
-
 curl -fsSL https://deno.land/install.sh | sh
 curl -fsSL https://bun.sh/install | bash
 

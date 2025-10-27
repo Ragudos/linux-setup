@@ -1,6 +1,33 @@
+if [[ -d "$HOME/Android" ]]; then
+    export ANDROID_HOME="$HOME/Android/Sdk"
+fi
+
+if [[ -d "$HOME/.local/share/pnpm" ]]; then
+    export PNPM_HOME="/home/hinode/.local/share/pnpm"
+    case ":$PATH:" in
+      *":$PNPM_HOME:"*) ;;
+      *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
+fi
+
 if [[ -d "$HOME/.nvm" ]]; then
   export NVM_DIR="$HOME/.nvm"
   [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+if [[ -d "$HOME/.config/nvm" ]]; then
+    export NVIM_DIR="$HOME/.config/nvm"
+  [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+if [[ -d "$HOME/.local/share/pnpm" ]]; then
+    export PNPM_HOME="/home/hinode/.local/share/pnpm"
+    case ":$PATH:" in
+      *":$PNPM_HOME:"*) ;;
+      *) export PATH="$PNPM_HOME:$PATH" ;;
+    esac
 fi
 
 if [[ -d "$HOME/.oh-my-zsh" ]]; then
